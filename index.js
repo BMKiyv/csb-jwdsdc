@@ -15,7 +15,11 @@ let counter = localStorage.getItem("filterCounter")
 let uaLang = document.querySelectorAll(".lang-ua");
 let enLang = document.querySelectorAll(".lang-en");
 let languages = document.querySelectorAll(".div-block-8");
-// console.log(customLocation.pathname.slice(0,3), customLocation.pathname)
+let mobileActivities = document.querySelector(".modal-menu-list-last");
+let mobileActivitiesBack = document.querySelector(".back-link");
+let additionalList = document.querySelector(".additional-list");
+additionalList.classList.add("initialListTransition");
+console.log(customLocation.pathname.slice(0, 3), mobileActivitiesBack);
 
 if (customLocation.pathname.slice(0, 3) !== "/en") {
   for (let item of uaLang) {
@@ -90,4 +94,21 @@ activity.addEventListener("click", (e) => {
   } else {
     menu2.style.height = "0px";
   }
+});
+mobileActivities.addEventListener("click", () => {
+  additionalList.classList.add("listTransition");
+});
+mobileActivitiesBack.addEventListener("click", (e) => {
+  let target = e.target;
+  console.log(
+    target,
+    target === mobileActivitiesBack.firstElementChild,
+    target === mobileActivitiesBack.lastElementChild
+  );
+
+  if (
+    target === mobileActivitiesBack.firstElementChild ||
+    target === mobileActivitiesBack.lastElementChild
+  )
+    additionalList.classList.value = "additional-list";
 });
