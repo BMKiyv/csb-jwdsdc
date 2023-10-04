@@ -1,4 +1,3 @@
-//console.log('it is working from localhost!!!!!!!')
 //let animated = document.querySelector(".slider-wrapper");
 let button = document.querySelectorAll(".div-block-7");
 let header = document.querySelector("header");
@@ -16,12 +15,14 @@ let uaLang = document.querySelectorAll(".lang-ua");
 let enLang = document.querySelectorAll(".lang-en");
 let languages = document.querySelectorAll(".div-block-8");
 let mobileActivities = document.querySelector(".modal-menu-list-last");
-let mobileActivitiesBack = document.querySelector(".back-link");
+//let mobileActivitiesBack = document.querySelector(".back-link");
 let additionalList = document.querySelector(".additional-list");
 additionalList.classList.add("initialListTransition");
-console.log(customLocation.pathname.slice(0, 3), mobileActivitiesBack);
+//console.log(customLocation.pathname.slice(0, 3));
 
 if (customLocation.pathname.slice(0, 3) !== "/en") {
+  let additionalList = document.querySelector(".additional-list");
+  additionalList.classList.add("initialListTransition");
   for (let item of uaLang) {
     item.classList.add("active");
   }
@@ -95,20 +96,13 @@ activity.addEventListener("click", (e) => {
     menu2.style.height = "0px";
   }
 });
-mobileActivities.addEventListener("click", () => {
-  additionalList.classList.add("listTransition");
-});
-mobileActivitiesBack.addEventListener("click", (e) => {
+mobileActivities.addEventListener("click", (e) => {
   let target = e.target;
-  console.log(
-    target,
-    target === mobileActivitiesBack.firstElementChild,
-    target === mobileActivitiesBack.lastElementChild
-  );
 
-  if (
-    target === mobileActivitiesBack.firstElementChild ||
-    target === mobileActivitiesBack.lastElementChild
-  )
-    additionalList.classList.value = "additional-list";
+  let classCss = additionalList.classList[1];
+  let classReplace = additionalList.classList.contains("listTransition")
+    ? "backListTransition"
+    : "listTransition";
+  console.log(target, classCss, classReplace);
+  additionalList.classList.replace(classCss, classReplace);
 });
