@@ -37,7 +37,7 @@ for (let i = 0; i < engMonths.length; i++) {
     result = [ukrDate[1].slice(0, -1), ukrDate[0], ukrDate[2], ukrDate[3]].join(
       " "
     );
-    console.log(result);
+    // console.log(result);
   }
 }
 anonceDate.innerHTML = result;

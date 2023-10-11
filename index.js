@@ -1,4 +1,3 @@
-//let animated = document.querySelector(".slider-wrapper");
 let button = document.querySelectorAll(".div-block-7");
 let header = document.querySelector("header");
 let body = header.nextElementSibling;
@@ -14,15 +13,19 @@ let counter = localStorage.getItem("filterCounter")
 let uaLang = document.querySelectorAll(".lang-ua");
 let enLang = document.querySelectorAll(".lang-en");
 let languages = document.querySelectorAll(".div-block-8");
-let mobileActivities = document.querySelector(".modal-menu-list-last");
-//let mobileActivitiesBack = document.querySelector(".back-link");
-let additionalList = document.querySelector(".additional-list");
-additionalList.classList.add("initialListTransition");
 //console.log(customLocation.pathname.slice(0, 3));
 
 if (customLocation.pathname.slice(0, 3) !== "/en") {
   let additionalList = document.querySelector(".additional-list");
   additionalList.classList.add("initialListTransition");
+  let mobileActivities = document.querySelector(".modal-menu-list-last");
+  mobileActivities.addEventListener("click", (e) => {
+    let classCss = additionalList.classList[1];
+    let classReplace = additionalList.classList.contains("listTransition")
+      ? "backListTransition"
+      : "listTransition";
+    additionalList.classList.replace(classCss, classReplace);
+  });
   for (let item of uaLang) {
     item.classList.add("active");
   }
@@ -75,12 +78,10 @@ for (let item of button) {
       localStorage.setItem("filtered", "0");
       localStorage.setItem("filterCounter", counter);
     }
-    //console.log(counter);
   });
 }
 about.addEventListener("click", (e) => {
   menu2.style.height = "0px";
-  console.log(e.target);
   if (!menu1.style.height || menu1.style.height === "0px") {
     menu1.style.height = "64px";
   } else {
@@ -89,20 +90,9 @@ about.addEventListener("click", (e) => {
 });
 activity.addEventListener("click", (e) => {
   menu1.style.height = "0px";
-  console.log(e.target);
   if (!menu2.style.height || menu2.style.height === "0px") {
     menu2.style.height = "128px";
   } else {
     menu2.style.height = "0px";
   }
-});
-mobileActivities.addEventListener("click", (e) => {
-  let target = e.target;
-
-  let classCss = additionalList.classList[1];
-  let classReplace = additionalList.classList.contains("listTransition")
-    ? "backListTransition"
-    : "listTransition";
-  console.log(target, classCss, classReplace);
-  additionalList.classList.replace(classCss, classReplace);
 });
