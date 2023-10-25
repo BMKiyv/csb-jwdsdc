@@ -6,7 +6,7 @@ let customLocation = document.location;
 let about = document.querySelector(".about");
 let activity = document.querySelector(".activity");
 let menu1 = document.querySelector(".second-menu");
-let menu2 = document.querySelector(".menu-block");
+let menu2 = document.querySelector("#activity");
 let counter = localStorage.getItem("filterCounter")
   ? localStorage.getItem("filterCounter")
   : 0;
