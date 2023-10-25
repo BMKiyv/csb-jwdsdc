@@ -81,6 +81,7 @@ for (let item of button) {
   });
 }
 about.addEventListener("click", (e) => {
+  console.log(e.target);
   menu2.style.height = "0px";
   if (!menu1.style.height || menu1.style.height === "0px") {
     menu1.style.height = "64px";
@@ -89,6 +90,7 @@ about.addEventListener("click", (e) => {
   }
 });
 activity.addEventListener("click", (e) => {
+  console.log(e.target);
   menu1.style.height = "0px";
   if (!menu2.style.height || menu2.style.height === "0px") {
     menu2.style.height = "128px";
@@ -96,3 +98,4 @@ activity.addEventListener("click", (e) => {
     menu2.style.height = "0px";
   }
 });
+console.log("what the fuck!!!");
