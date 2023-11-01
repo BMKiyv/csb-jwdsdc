@@ -93,9 +93,8 @@ activity.addEventListener("click", (e) => {
   menu1.style.height = "0px";
   console.log(menu1.style.height);
   if (!menu2.style.height || menu2.style.height === "0px") {
-    menu2.style.height = "128px";
+    menu2.style.height = "100%";
   } else {
     menu2.style.height = "0px";
   }
 });
-console.log("what the fuck!!!");
